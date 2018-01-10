@@ -3,6 +3,7 @@
 ##### Requisitos previos:
 
 - Linux
+- Python 3 (en 2 no compila porque espera solo ASCII y hay carácteres UTF-8)
 - Tiempo libre
 
 Hay que ctualizar y crear el directorio en el que se va a trabajar
@@ -21,11 +22,6 @@ Ahora toca instalar el compilador, las librerías y las distintas herramientas d
 sudo apt install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev libopencv-dev python-opencv
 ```
 
-Y, por último, descargar OpenCV al directorio de trabajo
-```
-git clone https://github.com/Itseez/opencv.git
-```
-
 * * *
 
 Hecho esto, procede una breve descripción.
@@ -34,7 +30,6 @@ Este proyecto consta de 2 ficheros, `cascadeCreation.py` y `cascadeTesting.py`, 
 
 Estos requisitos, que se deben cumplir en el directorio de trabajo en el que se almacenen estos ficheros, son:
 
-- Repositorio de OpenCV descargado
 - Carpeta "pos", que contiene las imágenes positivas del detector
 - Carpeta "neg", que contiene las imágenes negativas del detector
 - Carpeta "test", que contiene imágenes que incluyen el objeto a detectar, para realizar las pruebas

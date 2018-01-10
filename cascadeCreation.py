@@ -64,7 +64,7 @@ def readPositivesAndChangeSize():
         resized = cv2.resize(img, (50, 50))
         cv2.imwrite("pos/"+str(filename), resized)
 
-    print("Positivos, tamano modificado")
+    print("Positivos, tamaño modificado")
 
 """
     Lee todos los ficheros de la carpeta de imágenes positivas y escribe sus
@@ -113,7 +113,7 @@ def readNegativesAndChangeSize():
         resized = cv2.resize(img, (100, 100))
         cv2.imwrite("neg/"+str(filename), resized)
 
-    print("Negativos, tamano modificado")
+    print("Negativos, tamaño modificado")
 
 """
     Lee todos los ficheros de la carpeta de imágenes negativas y escribe sus
@@ -171,12 +171,12 @@ def consoleCreateCascade():
     file = cv2.imread(firstItem)
     height, width, channels = file.shape
 
-    numPos = (len(os.listdir("pos"))*90)/100
-    numNeg = (len(os.listdir("neg"))*90)/100
+    numPos = round((len(os.listdir("pos"))*90)/100)
+    numNeg = round((len(os.listdir("neg"))*90)/100)
 
     os.popen("mkdir data")
     print("Carpeta DATA creada")
-    print("Ejecutar a continuacion,")
+    print("\nEjecutar a continuación,")
     print("opencv_traincascade -data data -vec wheel.vec -bg bg.txt -numPos "+str(numPos)+" -numNeg "+str(numNeg)+" -numStages "+str(stages)+" -w "+str(width)+" -h "+str(height))
 
 clearDir()
