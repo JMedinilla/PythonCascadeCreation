@@ -3,7 +3,6 @@
 ##### Requisitos previos:
 
 - Linux
-- Python 3 (en 2 no compila porque espera solo ASCII y hay carácteres UTF-8)
 - Tiempo libre
 
 Hay que ctualizar y crear el directorio en el que se va a trabajar

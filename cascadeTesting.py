@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
     Javier J. Medinilla A.
     https://github.com/JMedinilla/
