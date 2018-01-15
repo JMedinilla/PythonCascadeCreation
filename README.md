@@ -11,10 +11,10 @@ sudo apt update
 sudo apt upgrade
 mkdir directorio_de_trabajo
 cd directorio_de_trabajo
-mkdir pos neg test
+mkdir pos neg
 ```
 
-Y añadir los ficheros `cascadeCreation.py` y `cascadeTesting.py` al directorio, al mismo nivel que `pos`, `neg` y `test`.
+Y añadir los ficheros `cascadeCreation.py` y `cascadeTesting.py` al directorio, al mismo nivel que `pos` y `neg`.
 
 Ahora toca instalar el compilador, las librerías y las distintas herramientas de Python necesarias
 ```
@@ -25,13 +25,12 @@ sudo apt install build-essential cmake git libgtk2.0-dev pkg-config libavcodec-d
 
 Hecho esto, procede una breve descripción.
 
-Este proyecto consta de 2 ficheros, `cascadeCreation.py` y `cascadeTesting.py`, que, dando por hecho que se cumplen los requisitos del directorio, crearán los archivos necesarios para empezar a detectar objetos con OpenCV.
+Este proyecto consta de un fichero, `cascadeCreation.py` que, dando por hecho que se cumplen los requisitos del directorio, creará los archivos necesarios para empezar a detectar objetos con OpenCV.
 
 Estos requisitos, que se deben cumplir en el directorio de trabajo en el que se almacenen estos ficheros, son:
 
 - Carpeta "pos", que contiene las imágenes positivas del detector
 - Carpeta "neg", que contiene las imágenes negativas del detector
-- Carpeta "test", que contiene imágenes que incluyen el objeto a detectar, para realizar las pruebas
 
 * * *
 
@@ -44,12 +43,4 @@ Ejecución en consola del fichero `cascadeCreation.py`:
 5. Usando el fichero de rutas a las imágenes positivas, crea un tercer fichero, el cual las va a contener todas, que será necesario a la hora de entrenar el haar cascade
 6. Una vez creados todos estos archivos, mostrará el comando que habrá que ejecutar en la consola a continuación para que comience el entrenamiento, proceso con una duración basada en la cantidad de imágenes usadas, su tamaño y el número de fases (más fases, mayor precisión), lo cual puede variar lo que tarde en crear el archivo, desde los 10 segundos, hasta las 3 semanas incluso
 
-Para más información, consultar el código del fichero
-
-* * *
-
-Ejecución en consola del fichero `cascadeTesting.py`:
-
-```
-En construcción
-```
+Para más información, consultar el código del fichero.
