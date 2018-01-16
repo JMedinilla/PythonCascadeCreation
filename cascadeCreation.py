@@ -60,9 +60,12 @@ def readPositivesAndChangeName():
     consecuencia para mantener la proporción del objeto
 """
 def readPositivesAndChangeSize():
+	wi = 50
+	he = 50
+
     for filename in os.listdir("pos"):
         img = cv2.imread("pos/"+str(filename),cv2.IMREAD_GRAYSCALE)
-        resized = cv2.resize(img, (50, 50))
+        resized = cv2.resize(img, (wi, he))
         cv2.imwrite("pos/"+str(filename), resized)
 
     print("Positivos, tamaño modificado")
@@ -107,11 +110,14 @@ def readNegativesAndChangeName():
     mayor que el objeto a detectar presente en las imágenes positivas
 """
 def readNegativesAndChangeSize():
+	wi = 100
+	he = 100
+
     lst = os.listdir("neg")
     orderlst = sorted(lst, key=lambda x: (int(re.sub('\D','',x)),x))
     for filename in orderlst:
         img = cv2.imread("neg/"+str(filename),cv2.IMREAD_GRAYSCALE)
-        resized = cv2.resize(img, (100, 100))
+        resized = cv2.resize(img, (wi, he))
         cv2.imwrite("neg/"+str(filename), resized)
 
     print("Negativos, tamaño modificado")
@@ -166,19 +172,20 @@ def consoleCreatePositiveVec():
     minutos a incluso más de 1 semana de ejecución ininterrumpida
 """
 def consoleCreateCascade():
-    stages = 10
+	percent = 90
+    stages = 20
 
     firstItem = "pos/"+os.listdir("pos")[0]
     file = cv2.imread(firstItem)
     height, width, channels = file.shape
 
-    numPos = round((len(os.listdir("pos"))*90)/100)
-    numNeg = round((len(os.listdir("neg"))*90)/100)
+    numPos = round((len(os.listdir("pos"))*percent)/100)
+    numNeg = round((len(os.listdir("neg"))*percent)/100)
 
     os.popen("mkdir data")
     print("Carpeta DATA creada")
     print("\nEjecutar a continuación,")
-    print("opencv_traincascade -data data -vec wheel.vec -bg bg.txt -numPos "+str(numPos)+" -numNeg "+str(numNeg)+" -numStages "+str(stages)+" -w "+str(width)+" -h "+str(height))
+    print("opencv_traincascade -data data -vec wheel.vec -bg bg.txt -numPos "+str(numPos)+" -numNeg "+str(numNeg)+" -numStages "+str(stages)+" -w "+str(width)+" -h "+str(height)+" -featureType LBP")
 
 clearDir()
 readPositivesAndChangeName()
